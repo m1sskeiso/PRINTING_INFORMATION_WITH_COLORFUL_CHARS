@@ -1,4 +1,6 @@
 import colorama
+import random
+
 
 # Initialize colorama
 colorama.init()
@@ -7,16 +9,24 @@ colorama.init()
 def print_rainbow_bold(text):
     colors = [colorama.Fore.RED, colorama.Fore.YELLOW, colorama.Fore.GREEN, colorama.Fore.CYAN, colorama.Fore.BLUE, colorama.Fore.MAGENTA]
     rainbow_text = ''
-    
+    for char in text:
+        rainbow_text += random.choice(colors) + char
+    print(colorama.Style.BRIGHT + rainbow_text + colorama.Style.RESET_ALL)
+
 # Main program
+if __name__ == "__main__":
+
     # Prompt user to input their name
-name = input("Enter your name: ")
+    name = input("Enter your name: ")
 
     # Prompt user to input their dream job
-dream_job = input("Enter your dream job: ")
+    dream_job = input("Enter your dream job: ")
 
     # Print name 
-print("\nYour name:", name)
+    print("\nYour name:")
+    print_rainbow_bold(name)
+
 
     # Print dream job 
-print("\nYour dream job: ", dream_job)
+    print("\nYour dream job: ")
+    print_rainbow_bold(name)
